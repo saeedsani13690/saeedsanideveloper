@@ -1,0 +1,185 @@
+.container {
+  max-width: 1300px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #111827;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 2fr 380px;
+  gap: 24px;
+}
+
+.rightdetailsCourse {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+.courseItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: 0.3s ease;
+}
+
+.courseItem:hover {
+  background: #fafafa;
+}
+
+.courseInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.courseInfo img {
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.courseInfo p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.courseActions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.courseActions p {
+  margin: 0;
+  font-weight: 700;
+  color: #16a34a;
+  font-size: 1rem;
+}
+
+.deleteBtn {
+  border: none;
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background: #dc2626;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.aboutcourse {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+.aboutcourse > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.aboutcourse > div p:first-child {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.aboutcourse > div p:last-child {
+  font-weight: 700;
+  color: #111827;
+}
+
+.aboutcourse h3 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.checkoutBtn {
+  width: 100%;
+  border: none;
+  padding: 15px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+  color: white;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.checkoutBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.securePayment {
+  margin-top: 18px;
+  text-align: center;
+  color: #16a34a;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 992px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutcourse {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .courseItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .courseActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}

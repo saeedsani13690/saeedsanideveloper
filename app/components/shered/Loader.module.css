@@ -1,0 +1,26 @@
+.loaderanimishion {
+    width: 60px;
+    margin: 40px auto 60px;
+    aspect-ratio: 4 / 1;
+
+    --_g: no-repeat radial-gradient(circle closest-side, #3414e9 90%, #0000);
+
+    background: var(--_g) 0% 50%, 
+                var(--_g) 50% 50%, 
+                var(--_g) 100% 50%;
+    background-size: calc(100% / 3) 100%;
+
+    animation: s 1s infinite linear;
+}
+
+@keyframes s {
+    33% {
+        background-size: 0 100%, calc(100% / 3) 100%, calc(100% / 3) 100%;
+    }
+    50% {
+        background-size: calc(100% / 3) 100%, 0 100%, calc(100% / 3) 100%;
+    }
+    66% {
+        background-size: calc(100% / 3) 100%, calc(100% / 3) 100%, 0 100%;
+    }
+}

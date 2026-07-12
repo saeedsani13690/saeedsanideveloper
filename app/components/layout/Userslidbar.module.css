@@ -1,0 +1,149 @@
+/* Adminsidebar.module.css */
+
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  padding: 24px 18px;
+  background: #f8fafc;
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  display: flex; /* برای اینکه محتوا و بخش خروج در پایین قرار بگیرند */
+  flex-direction: column;
+  justify-content: space-between; /* فاصله انداختن بین بخش بالایی و پایینی */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logoIcon {
+  font-size: 28px;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #374151;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.link:hover {
+  background: #e0f2fe;
+  color: #0f172a;
+  transform: translateX(4px);
+}
+
+/* استایل برای لینک فعال (اگر اضافه کنید) */
+.link.active {
+  background: #bae6fd;
+  color: #075985;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 18px;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+/* استایل برای لینک فعال */
+.link.active .icon {
+  color: #075985;
+}
+
+
+/* بخش خروج */
+.logoutSection {
+  margin-top: auto; /* دکمه را به پایین صفحه هل می‌دهد */
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%; /* دکمه کل عرض را بگیرد */
+  background: none; /* بدون پس‌زمینه پیش‌فرض */
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #dc2626; /* رنگ قرمز برای خروج */
+  transition: all 0.25s ease;
+  text-align: left; /* متن از چپ شروع شود */
+}
+
+.logoutButton:hover {
+  background: #fef2f2; /* پس‌زمینه قرمز ملایم */
+  color: #991b1b; /* رنگ قرمز تیره‌تر */
+  transform: translateX(4px);
+}
+
+.logoutButton .icon {
+  color: #dc2626; /* رنگ آیکون خروج */
+}
+
+.logoutButton:hover .icon {
+  color: #991b1b; /* رنگ آیکون در حالت هاور */
+}
+
+/* تنظیمات Responsive (اختیاری) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    padding: 15px 10px;
+  }
+  .header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+  .title {
+    font-size: 16px;
+  }
+  .icon {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  .link, .logoutButton {
+    padding: 8px 10px;
+    font-size: 14px;
+    gap: 10px;
+  }
+  .logoutSection {
+    padding-top: 15px;
+  }
+}

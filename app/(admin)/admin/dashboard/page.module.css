@@ -1,0 +1,94 @@
+.dashboardCard {
+  background: #f6dbdb;
+  border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.dashboardCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.flex svg {
+  font-size: 40px;
+}
+
+.information h5 {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.information span {
+  display: block;
+  margin-top: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #212529;
+}
+
+.alluser {
+  border-top: 5px solid #0d6efd;
+}
+.alluser svg {
+  color: #0d6efd;
+}
+
+.userinmount {
+  border-top: 5px solid #198754;
+}
+.userinmount svg {
+  color: #198754;
+}
+
+.allcourses {
+  border-top: 5px solid #fd7e14;
+}
+.allcourses svg {
+  color: #fd7e14;
+}
+
+.publishedcourses {
+  border-top: 5px solid #20c997;
+}
+.publishedcourses svg {
+  color: #20c997;
+}
+
+.allcomments {
+  border-top: 5px solid #6f42c1;
+}
+.allcomments svg {
+  color: #6f42c1;
+}
+
+.pendingcomments {
+  border-right: 5px solid #dc3545;
+}
+.pendingcomments svg {
+  color: #dc3545;
+}
+
+.allorders {
+  border-top: 5px solid #6610f2;
+}
+.allorders svg {
+  color: #6610f2;
+}
+
+.totalincome {
+  border-top: 5px solid #198754;
+}
+.totalincome svg {
+  color: #198754;
+}

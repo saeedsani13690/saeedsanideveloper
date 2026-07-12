@@ -1,0 +1,74 @@
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  direction: rtl; /* برای فارسی سازی */
+  font-family: 'Tahoma', sans-serif; /* یا هر فونت فارسی که داری */
+}
+
+.pageInfo {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  user-select: none;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #4f46e5; /* رنگ بنفش/آبی مدرن */
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  background-color: #f9fafb;
+  color: #d1d5db;
+  cursor: not-allowed;
+  box-shadow: none;
+  border-color: #f3f4f6;
+}
+
+/* آیکون‌های کوچک برای زیبایی بیشتر */
+.button svg {
+  margin: 0 4px;
+}
+
+/* واکنش‌گرا برای موبایل */
+@media (max-width: 480px) {
+  .paginationContainer {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+  .button {
+    width: 100%;
+  }
+}

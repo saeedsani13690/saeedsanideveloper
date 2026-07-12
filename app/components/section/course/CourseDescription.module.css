@@ -1,0 +1,67 @@
+.section{
+  margin-top:40px;
+  background:#fff;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+}
+
+.titlefulldecription{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:25px;
+  border-right:4px solid #4f46e5;
+  padding-right:10px;
+}
+
+.content{
+  line-height:2;
+  font-size:16px;
+  color:#444;
+}
+
+/* متن ها */
+.content p{
+  margin-bottom:16px;
+}
+
+/* تیترهای داخل توضیحات */
+.content h2{
+  margin-top:25px;
+  margin-bottom:10px;
+  font-size:20px;
+  font-weight:600;
+}
+
+.content h3{
+  margin-top:20px;
+  font-size:18px;
+}
+
+/* لیست ها */
+.content ul{
+  padding-right:20px;
+  margin-bottom:20px;
+}
+
+.content li{
+  margin-bottom:8px;
+}
+
+/* عکس داخل توضیحات */
+.content img{
+  max-width:100%;
+  border-radius:8px;
+  margin:20px 0;
+}
+
+/* لینک */
+.content a{
+  color:#4f46e5;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.content a:hover{
+  text-decoration:underline;
+}

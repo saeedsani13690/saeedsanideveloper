@@ -1,0 +1,129 @@
+/* Adminsidebar.module.css */
+
+.sidebar {
+  width: 280px;
+  /* ارتفاع صفحه منهای ارتفاع تقریبی هدر (مثلا 70px) */
+  height: 100vh ; 
+  padding: 24px 18px;
+  background: #ffffff;
+  border-left: 1px solid #e5e7eb; /* در RTL باید سمت چپ باشد */
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  position: sticky; /* سایدبار با اسکرول صفحه تکان نمی‌خورد */
+  top: 70px;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.logoIcon {
+  font-size: 28px;
+  color: #2563eb;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1; /* باعث می‌شود فضای میانی را پر کند و دکمه خروج به پایین بچسبد */
+  overflow-y: auto; /* اگر آیتم‌ها زیاد شد، فقط منو اسکرول بخورد */
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #4b5563;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.link:hover {
+  background: #f3f4f6;
+  color: #2563eb;
+}
+
+.icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.logoutSection {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: #fff1f2;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #be123c;
+  transition: 0.2s;
+}
+
+.logoutButton:hover {
+  background: #ffe4e6;
+  transform: scale(0.98);
+}
+
+/* --- تنظیمات ریسپانسیو --- */
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 80px; /* در تبلت فقط آیکون‌ها */
+    padding: 20px 10px;
+  }
+  .title, .link span {
+    display: none; /* مخفی کردن متن‌ها */
+  }
+  .header, .link {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    right: -100%; /* مخفی شدن در موبایل (باید با JS باز شود) */
+    top: 0;
+    height: 100vh;
+    width: 250px;
+  }
+  
+  /* اگر کلاسی به اسم .open اضافه شد، سایدبار دیده شود */
+  .sidebar.open {
+    right: 0;
+  }
+}

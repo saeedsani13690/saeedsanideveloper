@@ -1,0 +1,90 @@
+.section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #6c63ff, #4a90e2);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* افکت نور پس‌زمینه */
+.section::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  filter: blur(40px);
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.subtitle {
+  margin-top: 15px;
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* دکمه اصلی */
+.primary {
+  background: white;
+  color: #6c63ff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+}
+
+/* دکمه ثانویه */
+.secondary {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.secondary:hover {
+  background: white;
+  color: #6c63ff;
+}
+
+/* ریسپانسیو */
+@media (max-width: 600px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

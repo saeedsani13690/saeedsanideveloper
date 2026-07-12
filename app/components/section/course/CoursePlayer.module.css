@@ -1,0 +1,61 @@
+.playerContainer{
+    width:100%;
+    background:#111827;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.video{
+    width:100%;
+    display:block;
+    aspect-ratio:16/9;
+    background:black;
+}
+
+.loading{
+    aspect-ratio:16/9;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:22px;
+}
+
+.emptyPlayer{
+
+    aspect-ratio:16/9;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:20px;
+
+    color:white;
+
+    background:linear-gradient(135deg,#111827,#1f2937);
+
+    text-align:center;
+
+    padding:40px;
+}
+
+.icon{
+    font-size:80px;
+    color:#2563eb;
+}
+
+.emptyPlayer h2{
+    margin:0;
+}
+
+.emptyPlayer p{
+    color:#cbd5e1;
+    max-width:500px;
+}

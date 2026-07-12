@@ -1,0 +1,251 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: #070812;              /* پس‌زمینه تیره */
+  border-bottom: 1px solid rgba(120, 120, 255, 0.18);
+
+
+  position: sticky;                /* اگر خواستی هدر همیشه بالا بمونه */
+  top: 0;
+  z-index: 50;
+}
+
+.logoContainer { /* کلاس برای لوگو */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* فاصله بین لوگو و منو */
+}
+
+.logoContainer .icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+
+  filter: drop-shadow(0 0 10px rgba(110, 231, 255, 0.35))
+          drop-shadow(0 0 18px rgba(167, 139, 250, 0.25));
+}
+
+/* کانتینر اصلی برای ناوبری (منو) */
+.navContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* فاصله بین آیتم‌های ناوبری */
+}
+
+.header ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.header li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* فاصله کمتر بین آیکون و متن */
+
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.header li a svg {
+  font-size: 18px;
+}
+
+/* هاور روی لینک‌های منو */
+.header li a:hover {
+  color: #eaf7ff;
+  background: rgba(110, 231, 255, 0.08);
+  border-color: rgba(110, 231, 255, 0.35);
+  box-shadow: 0 0 22px rgba(110, 231, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* بخش سبد خرید و ورود/ثبت‌نام */
+.actionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* فاصله بین سبد خرید و ورود/ثبت‌نام */
+}
+
+.cart, .authLinks {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cart a, .authLinks a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-weight: 700;
+
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  transition: 0.2s ease;
+}
+
+.cart a {
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  background: rgba(167, 139, 250, 0.06);
+}
+
+.cart a:hover {
+  color: #f3eaff;
+  border-color: rgba(167, 139, 250, 0.55);
+  box-shadow: 0 0 26px rgba(167, 139, 250, 0.18);
+  transform: translateY(-1px);
+}
+
+.cart a svg {
+  font-size: 20px;
+}
+
+.authLinks a {
+  border: 1px solid rgba(110, 231, 255, 0.25);
+  background: rgba(110, 231, 255, 0.06);
+}
+
+.authLinks a:hover {
+  color: #eaf7ff;
+  border-color: rgba(110, 231, 255, 0.35);
+  box-shadow: 0 0 22px rgba(110, 231, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.authLinks a svg {
+  font-size: 18px;
+}
+
+
+/* عدد کنار سبد خرید */
+.cartCount {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6ee7ff, #a78bfa);
+  color: #05060c;
+
+  font-size: 13px;
+  font-weight: 900;
+
+  box-shadow: 0 0 18px rgba(110, 231, 255, 0.25);
+}
+
+/* برای واکنش‌گرایی (Mobile Responsiveness) - به صورت ساده */
+@media (max-width: 768px) {
+  .header ul, .header li {
+    display: none; /* منوی اصلی در موبایل مخفی میشه */
+  }
+
+  .header {
+    justify-content: space-between; /* لوگو و اکشن‌ها رو پخش می‌کنه */
+  }
+
+  .logoContainer {
+    gap: 0; /* فاصله کم برای لوگو در موبایل */
+  }
+
+  .actionsContainer {
+    gap: 10px; /* فاصله کمتر بین آیکون‌ها در موبایل */
+  }
+
+  .cart a, .authLinks a {
+      padding: 8px 10px; /* padding کمتر در موبایل */
+  }
+  .cart a svg, .authLinks a svg {
+      font-size: 20px; /* آیکون‌ها کمی بزرگتر */
+  }
+}
+
+.divEnterLogout{
+  display: inline-block;
+  transition: all 1s;
+  position: relative;
+}
+
+.divEnterLogout svg {
+  border: 2px solid rgb(90, 94, 90);
+  font-size: 60px;
+  border-radius: 30px;
+  padding: 10px; 
+}
+
+
+
+
+
+
+.profileMenuList{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.logoutButton{
+all: unset;
+width: auto;
+height: auto;
+padding: 10px;
+color: wheat;
+font-size: 20px;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+}
+
+
+.profileMenu{
+  width: 300px;
+position: absolute;
+top: 100%;
+
+right: -100px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background: rgb(23, 23, 23);
+border-radius: 8px;
+padding: 20px;
+ opacity: 0;
+transform: translateY(-5px);
+pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.profileMenu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+

@@ -1,0 +1,121 @@
+.hero {
+  position: relative;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* BLUR BACKGROUNDS */
+.blurOne,
+.blurTwo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.blurOne {
+  width: 300px;
+  height: 300px;
+  background: #6c63ff;
+  top: -80px;
+  right: -80px;
+}
+
+.blurTwo {
+  width: 250px;
+  height: 250px;
+  background: #00d4ff;
+  bottom: -80px;
+  left: -80px;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.05);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+/* ACTIONS */
+.actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+.primaryBtn {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.secondaryBtn:hover {
+  border-color: #6c63ff;
+  color: #6c63ff;
+}
+
+/* IMAGE */
+.image {
+  flex: 1;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+ 
+
+  .actions {
+    justify-content: center;
+  }
+}

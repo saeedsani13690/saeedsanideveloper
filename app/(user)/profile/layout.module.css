@@ -1,0 +1,16 @@
+.userlayout{
+    display: flex;
+}
+.sidebar{
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+   
+  
+
+}
+.contectContainer{
+    margin-right: 300px;
+    flex: 1;
+    padding: 20px;
+}

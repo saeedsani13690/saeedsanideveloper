@@ -1,0 +1,149 @@
+.container {
+  background: #fff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  margin-top: 30px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 25px;
+  border-right: 5px solid #0d6efd;
+  padding-right: 12px;
+}
+
+.chapter {
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  transition: all .3s ease;
+}
+
+.chapter:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.chapterHeader {
+  background: linear-gradient(135deg,#f8f9fa,#eef3ff);
+  padding: 18px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: .3s;
+}
+
+.chapterHeader:hover {
+  background: #eaf2ff;
+}
+
+.chapterTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chapterTitle h3 {
+  margin: 0;
+  font-size: 19px;
+  color: #222;
+}
+
+.chapterTitle span {
+  background: #0d6efd;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.arrow {
+  font-size: 18px;
+  color: #0d6efd;
+  transition: .3s;
+}
+
+.lessonList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+.lessonItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-top: 1px solid #f1f1f1;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.lessonItem:hover {
+  background: #f8fbff;
+  transform: translateX(-4px);
+}
+
+.lessonInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.playIcon {
+  color: #28a745;
+  font-size: 20px;
+}
+
+.lockIcon {
+  color: #dc3545;
+  font-size: 20px;
+}
+
+.lessonInfo span {
+  font-weight: 500;
+  color: #333;
+}
+
+.lessonMeta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lessonMeta span:first-child {
+  color: #666;
+  font-size: 14px;
+}
+
+.lockText {
+  background: #f5f7fa;
+  color: #666;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+@media (max-width:768px) {
+  .lessonItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .lessonMeta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .chapterTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
