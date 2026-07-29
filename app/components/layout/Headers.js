@@ -8,6 +8,7 @@ import { useCart } from "@/context/cartContext/CartContext";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MdAdminPanelSettings } from "react-icons/md";
+import { MdPhone } from "react-icons/md";
 // آیکون‌ها
 import { FaHome, FaRegNewspaper, FaMicrophoneAlt, FaGraduationCap, FaShoppingCart, FaSignInAlt, FaUserPlus, FaUser } from "react-icons/fa";
 
@@ -50,6 +51,16 @@ if( pathname.startsWith("/auth") ||
               <FaMicrophoneAlt /> درباره من
             </Link>
           </li>
+
+
+
+          <li>
+            <Link href="/contact">
+              <MdPhone />  تماس با ما 
+            </Link>
+          </li>
+
+
          
         </ul>
       </nav>
@@ -66,6 +77,7 @@ if( pathname.startsWith("/auth") ||
           width={70}
           height={70}
           className={styles.avatar}
+          unoptimized
         />
       ) : user.role === "admin" ? (
         <MdAdminPanelSettings size={32} color="#fbbf24" />

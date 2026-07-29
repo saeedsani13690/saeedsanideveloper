@@ -9,6 +9,7 @@ import {
 } from "@aws-sdk/client-s3";
 import s3 from "@/configs/ArvanCloud";
 import CourseSchema from "@/models/CourseSchema";
+import { getEmbedding } from "@/app/api/chatBot/openai";
 
 
 // حذف کامل یک فولدر در آروان کلود
@@ -309,7 +310,7 @@ catch(error){
 
 //چک کردن اسلاگ برای یونیک بودن 
 
-if(updateSlug!=urlSlug){
+if(updateSlug!==urlSlug){
    const exitingSlug=await Course.findOne({slug:urlSlug}) 
    if(exitingSlug){
     return Response.json(
@@ -349,6 +350,27 @@ course.thumbnail=imageUrl;
 course.chapters=chapters;
  course.lessonsCount= chapters.reduce((sum,ch)=>sum+ch.lessons.length,0)
 
+// ساخت embedding جدید بعد از تغییر اطلاعات دوره
+
+const courseText = `
+نام دوره:
+${title}
+
+دسته بندی:
+برنامه نویسی و طراحی سایت
+توضیحات کوتاه:
+${shortDescription}
+توضیحات کامل:
+${fullDescription}
+سطح:
+${levelPeriod}
+سرفصل ها:
+${chapters
+.map(ch => ch.title)
+.join(" ")}
+`;
+const embedding = await getEmbedding(courseText);
+course.embedding = embedding;
 
 
 await course.save();

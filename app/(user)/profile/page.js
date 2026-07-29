@@ -20,6 +20,9 @@ const [preview, setPreview] = useState("");
 const { setUser: setAuthUser } = useAuth();
 
 
+console.log(user)
+
+
 
     
 
@@ -170,6 +173,7 @@ return(
     accept="image/*"
     hidden
      onChange={imageHandler}
+       
   />
 
   <label htmlFor="profileImage" className={styles.imgprofile}>
@@ -177,6 +181,7 @@ return(
                 height={180}
                 alt="Profile"
                 className={styles.profileImage}
+                unoptimized
                   style={{
             borderRadius: "50%",
             objectFit: "cover"
@@ -272,6 +277,7 @@ return(
                         width={300}
                         height={180}
                         alt={course.title}
+                        unoptimized={course.thumbnail?.includes("arvanstorage.ir")}
                     />
 
                     <h5>{course.title}</h5>

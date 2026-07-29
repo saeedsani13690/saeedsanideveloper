@@ -2,21 +2,30 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./CourseCard.module.css";
 import { FaUsers } from "react-icons/fa";
+import { div } from "framer-motion/client";
 export default function CourseCard({course}){
     return(
         <>
       
       <div className={styles.card}>
       <div className={styles.imageBox}>
-        <Image
-          src={course.thumbnail}
-          alt={course.title}
-          fill
-          className={styles.image}
-        />
-{course.discountPrice &&  course.isfree==false?<span className={styles.badge}>{discountPercent(course.price,course.discountPrice)}% </span>:"" }
-        
-      </div>
+
+    <Image
+      src={course.thumbnail}
+      alt={course.title}
+      fill
+      className={styles.image}
+    />
+  
+
+  {course.discountPrice && !course.isfree && (
+    <div className={styles.badge}>
+      {discountPercent(course.price, course.discountPrice)}%
+    </div> )}
+
+ 
+
+</div>
 
       <div className={styles.content}>
         <h3 className={styles.title}> {course.title}</h3>

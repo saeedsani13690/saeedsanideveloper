@@ -33,7 +33,7 @@ const handlerBackSpace = (e, index) => {
 
 
 const handelrefindex=(e,index)=>{
-    const value=e.target.value
+    const value = e.target.value.replace(/\D/g, "");
     if(value.length==1){
 const updatedeOtp=[...otp]
 updatedeOtp[index]=value
@@ -49,6 +49,33 @@ inputsref.current[index+1].focus()
 }
 
 
+// این کامپونتن برای کپی یک رمز است 
+const handlePaste =(e)=>{
+    // از اینکه همه اعداد در یک اینپوت ذخیره بشن جلوگیری میکنه
+      e.preventDefault();
+      // از این برای کپی اعداد استاده مینکی
+     const pastedData = e.clipboardData
+     .getData("text")
+     .replace(/\D/g, "");// اینجا میگه هر  چیزی جز عدد رو نادیده بگیر 
+if(!pastedData ) return;
+
+
+const newOtp = [...otp];// از خود استیت کدها یک کپی میگیریم 
+pastedData
+.slice(0,5)// فقط اجازه 5 رقم میدهیم 
+.split("")// بعد از هر عدد یک دابل کوتیشن بزار ["5", "8", "4", "2", "1"]
+.forEach((digit,index)=>{
+    newOtp[index]=digit// [0]=[5]   [1]=[9]   digit = "5" index = 0
+
+})
+  setOtp(newOtp);  
+
+      const lastIndex = Math.min(pastedData.length - 1, 4); // اینجا شماره اندیس رابرای فوکس میگیریم واز عدد اخر 4 جلوتر نرو چون 5 خانه داریم 
+  inputsref.current[lastIndex]?.focus();
+
+}
+
+
 
     return(
         <>
@@ -59,6 +86,8 @@ inputsref.current[index+1].focus()
   onChange={(e)=>handelrefindex(e,0)}
   onKeyDown={(e)=>handlerBackSpace(e,0)}
   value={otp[0]}
+  onFocus={(e) => e.target.select()}
+  onPaste={handlePaste}
   />
 <input type="text" className={styles.otpInput}
  inputMode="numeric" maxLength={1} 
@@ -66,6 +95,7 @@ inputsref.current[index+1].focus()
   onChange={(e)=>handelrefindex(e,1)}
   onKeyDown={(e)=>handlerBackSpace(e,1)}
   value={otp[1]}
+  onFocus={(e) => e.target.select()}
  />
 <input type="text" className={styles.otpInput}
  inputMode="numeric" maxLength={1}
@@ -73,6 +103,7 @@ inputsref.current[index+1].focus()
    onChange={(e)=>handelrefindex(e,2)}
    onKeyDown={(e)=>handlerBackSpace(e,2)}
    value={otp[2]}
+   onFocus={(e) => e.target.select()}
   />
 <input type="text" className={styles.otpInput}
  inputMode="numeric" maxLength={1}
@@ -80,6 +111,7 @@ inputsref.current[index+1].focus()
    onChange={(e)=>handelrefindex(e,3)}
    onKeyDown={(e)=>handlerBackSpace(e,3)}
    value={otp[3]}
+   onFocus={(e) => e.target.select()}
   />
 <input type="text" className={styles.otpInput}
  inputMode="numeric" maxLength={1}
@@ -87,6 +119,7 @@ inputsref.current[index+1].focus()
    onChange={(e)=>handelrefindex(e,4)}
    onKeyDown={(e)=>handlerBackSpace(e,4)}
    value={otp[4]}
+   onFocus={(e) => e.target.select()}
   />
 
 

@@ -1,3 +1,4 @@
+
 .auchWrapp{
     margin:0;
     height:100vh;
@@ -9,6 +10,83 @@
     overflow:hidden;
 }
 
+
+.logoBox{
+    width: 70px;
+    height: 70px;
+   margin: 0 auto 18px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#2563eb,#4f46e5);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    box-shadow:
+        0 15px 40px rgba(37,99,235,.35);
+    transition: .3s;
+    animation: floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-8px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+
+}
+
+
+.logoBox:hover{
+    transform: rotate(8deg) scale(1.08);
+
+    box-shadow:
+        0 20px 50px rgba(37,99,235,.45);
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    margin:18px 0 14px;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:rgba(255,255,255,.15);
+}
+
+.divider span{
+    margin:0 15px;
+    color:rgba(255,255,255,.55);
+    font-size:14px;
+}
+
+.homeLink{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    color:#cbd5e1;
+    text-decoration:none;
+    transition:.3s;
+    font-size:15px;
+}
+.homeLink:hover{
+    color:white;
+}
 
 .backtoHome{
     border: 2px solid rgb(111, 98, 98);
@@ -25,9 +103,6 @@
     font-weight: bold;
     color: rgba(21, 193, 228, 0.639);
 }
-
-
-
 .auchWrapp::before, .auchWrapp::after{
     content:"";
     position:absolute;
@@ -52,9 +127,6 @@
     right:20%;
 }
 
-
-
-
 .particle{
     position:absolute;
     width:6px;
@@ -69,9 +141,6 @@
     from{transform:translateY(0)}
     to{transform:translateY(-800px)}
 }
-
-
-
 
 .linkButton {
   display: inline-block;
@@ -88,74 +157,184 @@
   backdrop-filter: blur(10px);
   
 }
-
 .linkButton:hover {
   background: rgba(0, 212, 255, 0.15);
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
 }
 
-
-
-
-
-
-
-
 .authForm{
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    
+    position: absolute;
+     top: 50%;
+    left: 50%; 
+
     transform: translate(-50% ,-50%);
     width: 400px;
-    background-color: white;
-    padding: 40px 25px;
+    
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+     padding: 28px 24px;
     border-radius: 10px;
     text-align: center;
-
+  border: 1px solid rgba(255,255,255,.15);
+   border-radius: 24px;
+   box-shadow:
+        0 15px 35px rgba(0,0,0,.25),
+        0 30px 60px rgba(0,0,0,.15);
+        z-index: 5;
+        animation: cardEnter .6s ease;
+transform-origin: center;
+transition:
+transform .35s ease,
+box-shadow .35s ease;
 }
+
+.authForm:hover{
+    transform:
+        translate(-50%,-50%)
+        translateY(-6px);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35),
+        0 40px 90px rgba(37,99,235,.18);
+}
+
+
 .authForm h2{
-    text-align: center;
-    color: #444;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+   margin-bottom: 6px;
+    letter-spacing: 1px;
 
 }
 .authForm h3{
-    color: #444;
-    font-size: 18px;
-    margin-bottom: 10px;
+     font-size: 1.3rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 6px;
 
 }
-.authForm input,
+
+.authForm p{
+    color: rgba(255,255,255,.75);
+    line-height: 1.8;
+    font-size: .95rem;
+    margin-bottom: 6px;
+}
+
+.authForm input{
+  width: 100%;
+    height: 56px;
+    margin-top: 12px;
+    padding:0 10px 0 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all .3s ease;
+}
+
+.authForm input::placeholder{
+    color: rgba(255,255,255,.45);
+}
+
+.authForm input:focus{
+    border-color:#38bdf8;
+
+    box-shadow:
+        0 0 0 4px rgba(56,189,248,.15);
+
+    background:rgba(255,255,255,.12);
+}
+
+.inputGroup{
+    position: relative;
+    margin-top: 20px;
+}
+.inputIcon{
+    position: absolute;
+    left: 18px;
+    top: 60%;
+    transform: translateY(-50%);
+    color: rgba(255,255,255,.65);
+    font-size: 20px;
+    pointer-events: none;
+}
 .authForm button{
-width: 100%;
-
-padding: 10px;
-border-radius: 10px;
-outline: none;
-border: none;
-background-color: aliceblue;
-margin-top: 20px;
-font-size: 16px;
-
+    width: 100%;
+    height: 56px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg,#2563eb,#4f46e5);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow:
+        0 12px 30px rgba(37,99,235,.30);
 }
-.authForm button{
-   background-color: blue;
-   color: white;
-   cursor: pointer;
-
+.authForm button:hover{
+    transform: translateY(-3px);
+    box-shadow:
+        0 18px 40px rgba(37,99,235,.40);
+}
+.authForm button:active{
+    transform: scale(.98);
+}
+.authForm button:disabled{
+    cursor: not-allowed;
+    opacity:.55;
+    transform:none;
+    box-shadow:none;
 }
 
+
+
+
+
+
+
+
+
+/* // کارت کد هست  */
 .gotobackRegister{
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50% ,-50%);
+    transform: translate(-50%, -50%);
     width: 400px;
-    background-color: white;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 24px;
     padding: 40px 25px;
-    border-radius: 10px;
-
+    text-align: center;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25),
+        0 30px 60px rgba(0,0,0,.15);
+    z-index: 5;
+    animation: cardEnter .6s ease;
+    transition: transform .35s ease, box-shadow .35s ease;
 }
+
+.gotobackRegister:hover{
+    transform:
+        translate(-50%,-50%)
+        translateY(-6px);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35),
+        0 40px 90px rgba(37,99,235,.18);
+}
+
+
+
 .gotobackRegister button{
      background-color: blue;
    color: white;
@@ -166,6 +345,77 @@ font-size: 16px;
    text-align: center;
    width: 100%;
 }
+.phoneBadge{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px 0 24px;
+    padding: 10px 18px;
+    border-radius: 50px;
+    background: rgba(37,99,235,.18);
+    border: 1px solid rgba(56,189,248,.25);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.backButton{
+    position: absolute;
+    top: 18px;
+   right: 2px;
+    
+    width: 10px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.backButton:hover{
+    background: rgba(37,99,235,.25);
+    transform: scale(1.08);
+}
+
+.backButton:active{
+    transform: scale(.1);
+}
+
+.timerBox{
+    margin-top: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 50px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    color: #fff;
+    font-weight: 600;
+}
+
+.resendBtn{
+    margin-top: 34px;
+    background: transparent;
+    border: none;
+    color: #527e91;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
+
+
+
 
 
 
@@ -186,12 +436,87 @@ font-size: 16px;
 }
 
 
+}
+
+@keyframes cardEnter {
+    from{
+        opacity: 0;
+        transform: translate(-50%, -42%) scale(.96);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@media (max-width:768px){
+
+    .authForm,
+    .gotobackRegister{
+
+        width: calc(100% - 30px);
+
+        max-width:420px;
+
+        padding:40px 24px;
+
+        border-radius:20px;
+    }
 
 }
-.resend{
-    cursor: pointer;
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
-    color: rgb(90, 90, 241);
+
+@media (max-width:768px){
+
+    .authForm h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .authForm h3{
+
+        font-size:1.15rem;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .logoBox{
+
+        width:72px;
+        height:72px;
+
+        font-size:24px;
+
+        margin-bottom:20px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .authForm button{
+
+        height:52px;
+
+        font-size:15px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .authForm input{
+
+        height:52px;
+
+        font-size:15px;
+
+    }
+
 }

@@ -1,0 +1,25 @@
+.container {
+   min-height: 100vh;
+    background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #eb738b,
+    #e25be9,
+    #93f04c,
+    #8ca0d6
+  );
+  padding: 20px;
+    background-size: 100% 200%;
+     animation: bgFlow 6s ease-in-out infinite alternate;
+     border-radius: 20px;
+}
+
+@keyframes bgFlow {
+  from {
+    background-position: top;
+  }
+
+  to {
+    background-position: bottom;
+  }
+}

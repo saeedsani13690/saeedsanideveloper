@@ -139,15 +139,112 @@
   box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
 }
 
-.empty {
-  text-align: center;
-  padding: 80px 20px;
-  background: white;
-  border-radius: 20px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #64748b;
+.emptyState{
+    max-width: 700px;
+    width: 100%;
+    min-height: 70vh;
+
+    margin: 40px auto;
+    padding: 70px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background: #fff;
+
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.05),
+        0 20px 48px rgba(15, 23, 42, 0.08);
+
+    transition: all .3s ease;
 }
+
+.emptyState:hover{
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 36px rgba(15, 23, 42, 0.08),
+        0 30px 60px rgba(15, 23, 42, 0.12);
+}
+.icon{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:55px;
+    color:#fff;
+    box-shadow:0 20px 50px rgba(37,99,235,.25);
+    margin-bottom:30px;
+    transition:.3s;
+}
+
+.icon:hover{
+    transform:translateY(-6px) scale(1.05);
+}
+
+.emptyState h2{
+    font-size:2rem;
+    font-weight:800;
+    color:#0f172a;
+    margin-bottom:18px;
+}
+
+.emptyState p{
+    max-width:520px;
+    color:#64748b;
+    line-height:2;
+    font-size:1rem;
+    margin-bottom:35px;
+}
+
+.actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.primaryBtn,
+.secondaryBtn{
+    padding:14px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+.primaryBtn{
+    background:#2563eb;
+    color:#fff;
+    box-shadow:0 12px 30px rgba(37,99,235,.25);
+}
+
+.primaryBtn:hover{
+    transform:translateY(-3px);
+    background:#1d4ed8;
+}
+
+.secondaryBtn{
+    border:1px solid #dbe3ee;
+    background:#fff;
+    color:#334155;
+}
+
+.secondaryBtn:hover{
+    background:#f8fafc;
+    transform:translateY(-3px);
+}
+
+
 
 .securePayment {
   margin-top: 18px;

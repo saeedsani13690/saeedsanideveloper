@@ -1,0 +1,57 @@
+.PaginationQuestion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.button {
+    min-width: 90px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.button:disabled {
+    background: #cbd5e1;
+    color: #64748b;
+    cursor: not-allowed;
+}
+
+.pageButton {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background: #fff;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.pageButton:hover {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+
+.active {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}

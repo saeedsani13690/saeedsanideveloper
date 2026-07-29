@@ -58,25 +58,22 @@ const expiresAt = Date.now() + OTP_EXPIRE_SECONDS * 1000;
        
         
         // ارسال پیامک از طریق پنل خودم
-        // const response = await fetch("https://api.sms.ir/v1/send/verify", {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': 'text/plain',
-        //         'x-api-key': process.env.X_API_KEY
-        //     },
-        //     method: "POST",
-        //     body: JSON.stringify({
-        //         "mobile": phone,
-        //         "templateId": process.env.TEMPLATE_ID,
-        //         "parameters": [
-        //             { name: 'code', value: otpCode },
-        //         ],
-        //     }),
-        // })
-
-        const response = 200 // برای تست
-        
-        if (response === 200) {
+        const response = await fetch("https://api.sms.ir/v1/send/verify", {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'text/plain',
+                'x-api-key': process.env.X_API_KEY
+            },
+            method: "POST",
+            body: JSON.stringify({
+                "mobile": phone,
+                "templateId": process.env.TEMPLATE_ID,
+                "parameters": [
+                    { name: 'code', value: otpCode },
+                ],n
+            }),
+        })
+        if (response.status === 200) {
             // اگر کاربر از قبل وجود داشته
             if (user) {
                 user.otp = {
@@ -85,6 +82,23 @@ const expiresAt = Date.now() + OTP_EXPIRE_SECONDS * 1000;
                 }
                 await user.save()
             } 
+
+
+
+
+//  const response=200// برای تست
+//  if (response === 200) {
+//             // اگر کاربر از قبل وجود داشته
+//             if (user) {
+//                 user.otp = {
+//                     code: otpCode,
+//                     expiresAt: new Date(expiresAt)
+//                 }
+//                 await user.save()
+//             } 
+// // بایان تست
+
+
             // اگر کاربر جدید بود 
             else {
                 await UserSchema.create({

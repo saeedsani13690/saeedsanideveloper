@@ -11,6 +11,7 @@ const cookieStore=await  cookies()
 
 const refreshToken=cookieStore.get("refreshToken")?.value
 
+
 let userId=null
 
 if(refreshToken){
@@ -57,6 +58,19 @@ sameSite:"strict",
 secure:process.env.NODE_ENV==="production"
 
 })
+
+
+response.cookies.delete("cart", {
+  httpOnly: false,
+  path: "/",
+  sameSite: "strict",
+  secure: process.env.NODE_ENV === "production",
+});
+
+
+
+
+
 return response;
 
 }

@@ -77,6 +77,7 @@ const comment=await Comment.findById(id)
     }
 
      comment.status = status;
+     comment.isReadByAdmin=true
 await comment.save();
 return Response.json(
     {success:true,message:"کامنت اپدیت شد "},

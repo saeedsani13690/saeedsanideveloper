@@ -4,8 +4,10 @@ import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken"
 import UserSchema from "@/models/UserSchema";
 import CourseSchema from "@/models/CourseSchema";
-import fs from "fs/promises";
-import path from "path";
+//import fs from "fs/promises"
+//import path from "path";
+import { PutObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3";
+import s3 from "@/configs/ArvanCloud";
 
 
 export async function GET(){
@@ -40,7 +42,7 @@ return NextResponse.json(
 
 //حالا میریم یوزر پیدا میکنیم از اون توکن معتبر
 const user=await UserSchema.findById(payload.userId)
-.select("name phone email role createdAt purchesedCourses profileImage ")
+.select("name phone email role createdAt purchesedCourses profileImage lastLoginAt ")
 .populate("purchesedCourses","title slug thumbnail lessonsCount totalDuration ")
 .lean()
 
@@ -127,56 +129,64 @@ user.email=email
 
 
 
-   //-----------------------------------
-        // آپلود عکس
-        //-----------------------------------
+ //-----------------------------------
+// آپلود عکس پروفایل جدید
+//-----------------------------------
 
- if (image && image.size > 0) {
+if (image && image.size > 0) {
 
-            // حذف عکس قبلی
+    // اگر کاربر قبلاً عکس پروفایل داشته باشد،
+    // ابتدا آن را از Arvan Cloud حذف می‌کنیم.
+    if (user.profileImage) {
+        try {
 
-            if (
-                user.profileImage &&
-                user.profileImage.startsWith("/uploads/")
-            ) {
+            // استخراج مسیر (Key) عکس از آدرس کامل ذخیره شده در دیتابیس
+            const oldKey = user.profileImage.split(
+                `${process.env.ARVAN_BUCKET}/`
+            )[1];
 
-                const oldPath = path.join(
-                    process.cwd(),
-                    "public",
-                    user.profileImage
-                );
 
-                try {
-                    await fs.unlink(oldPath);
-                } catch (err) {}
+            if(oldKey){
+ await s3.send(
+                new DeleteObjectCommand({
+                    Bucket: process.env.ARVAN_BUCKET,
+                    Key: oldKey,
+                })
+            );
             }
 
-            // ذخیره عکس جدید
+           
 
-            const bytes = await image.arrayBuffer();
-
-            const buffer = Buffer.from(bytes);
-
-            const fileName =
-                Date.now() +
-                "-" +
-                image.name.replaceAll(" ", "-");
-
-      const uploadDir = path.join(
-    process.cwd(),
-    "public",
-    "uploads"
-);
-
-// اگر پوشه وجود نداشت، آن را ایجاد کن
-await fs.mkdir(uploadDir, { recursive: true });
-
-const uploadPath = path.join(uploadDir, fileName);
-
-await fs.writeFile(uploadPath, buffer);
-user.profileImage = `/uploads/${fileName}`;
+        } catch (error) {
+            console.log("Old profile image not found.");
         }
+    }
 
+    // تبدیل فایل انتخاب شده به Buffer
+    const bytes = await image.arrayBuffer();
+    const buffer = Buffer.from(bytes);
+
+    // استخراج پسوند فایل (jpg, png, webp, ...)
+    const extensionImage = image.name.split(".").pop();  //["my-photo","png"]
+
+    // ساخت مسیر ذخیره عکس داخل باکت Arvan
+    const imageKey = `avatars/${user._id}-${Date.now()}.${extensionImage}`;
+
+    // آپلود عکس جدید در Arvan Cloud
+    await s3.send(
+        new PutObjectCommand({
+            Bucket: process.env.ARVAN_BUCKET,
+            Key: imageKey,
+            Body: buffer,
+            ContentType: image.type,
+        })
+    );
+
+    // ذخیره آدرس کامل عکس در دیتابیس
+user.profileImage = `${process.env.ARVAN_ENDPOINT}/${process.env.ARVAN_BUCKET}/${imageKey}`;
+}
+
+           
   await user.save();
   return Response.json({
             success: true,

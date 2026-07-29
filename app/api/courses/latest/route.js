@@ -7,10 +7,11 @@ export async function GET(req){
 try{
 await connectDB()
 const{searchParams}=new URL(req.url)
-const limit=parseInt(searchParams.get("limit") ) || 4;
+const limit=parseInt(searchParams.get("limit") ) ||8 ;
 const course=await CourseSchema.find({statusPeriod:"published"})
+
 .sort({createdAt:-1})
-// .limit(limit)
+.limit(limit)
 .select(
     "title slug shortDescription thumbnail price discountPrice isfree levelPeriod studentsCount"
 )
@@ -20,8 +21,10 @@ return Response.json({course})
 }
 
 
+
+
 catch(error){
-    console.log("error fetching in courses", error)
+    
 return Response.json(
 {success:false,message:"خطای سرور "},
 {status:500}

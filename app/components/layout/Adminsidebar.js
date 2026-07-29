@@ -63,6 +63,32 @@ const {logout}=useAuth()
           </Link>
         </li>
 
+
+
+          <li>
+          <Link href="/admin/question" className={styles.link}>
+            <FaShoppingBag className={styles.icon} />
+            <span>طرح سوالات رایج سایت </span>
+          </Link>
+        </li>
+
+         <li>
+          <Link href="/admin/contact" className={styles.link}>
+            <FaShoppingBag className={styles.icon} />
+            <span>   نظرات کاربران سایت  </span>
+          </Link>
+        </li>
+
+
+
+         <li>
+          <Link href="/admin/feedback" className={styles.link}>
+            <FaShoppingBag className={styles.icon} />
+            <span>     مدیریت بازخوردها  </span>
+          </Link>
+        </li>
+
+
        
 
 

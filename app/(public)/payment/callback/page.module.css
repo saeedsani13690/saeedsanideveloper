@@ -1,0 +1,124 @@
+.loadingContainer {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingCard {
+  width: 430px;
+  background: #9e9696;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow:
+  0 8px 24px rgba(0, 0, 0, 0.12),
+  0 16px 48px rgba(0, 0, 0, 0.16),
+  0 24px 80px rgba(0, 0, 0, 0.10);
+}
+
+
+/* موفقامیز
+ */
+
+ .container {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.successCard,
+.failedCard {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08),
+    0 24px 60px rgba(0, 0, 0, 0.16);
+  border: 1px solid #eee;
+}
+
+.successIcon {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+/* موفقامیز
+ */
+
+
+
+/* // ناموفق// */
+ .errorIcon {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 15px;
+}
+.message {
+  color: #666;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+.refBox {
+  background: #f8f9fa;
+  border: 1px dashed #ccc;
+  border-radius: 15px;
+  padding: 18px;
+  margin-bottom: 30px;
+}
+.refTitle {
+  display: block;
+  color: #888;
+  margin-bottom: 10px;
+}
+.refId {
+  font-size: 24px;
+  color: #198754;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.primaryBtn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #0d6efd;
+  color: #fff;
+  transition: .3s;
+}
+
+.primaryBtn:hover {
+  background: #0b5ed7;
+}
+
+
+.secondaryBtn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #dc3545;
+  color: #fff;
+  transition: .3s;
+}
+
+.secondaryBtn:hover {
+  background: #bb2d3b;
+}

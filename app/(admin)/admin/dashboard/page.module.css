@@ -92,3 +92,356 @@
 .totalincome svg {
   color: #198754;
 }
+
+
+.latestUsersCard{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    margin-top:35px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.header{
+    margin-bottom:20px;
+}
+
+.header h4{
+    font-weight:bold;
+}
+
+.userItem{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.userItem:last-child{
+    border-bottom:none;
+}
+
+.userInfo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.userInfo h6{
+    margin:0;
+    font-weight:bold;
+}
+
+.userInfo span{
+    color:#777;
+    font-size:14px;
+}
+
+.date{
+    color:#999;
+    font-size:14px;
+}
+
+
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: 22px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/* استایل های مربوط به نمدار کاربران */
+.chartCard{
+    background:#373237;
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+    margin-top: 40px;
+    max-height: 410px;
+}
+
+
+
+.chartCard h5{
+  color: white;
+}
+
+.chartHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.chartHeader h5{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+    color: white;
+}
+
+.chartHeader span{
+    color:#6b7280;
+    font-size:14px;
+}
+
+/* استایل های مربوط به نمدار کاربران */
+
+
+
+/* استایل ها مربوط به هدر ادمین  */
+.welcomeCard{
+display:flex;
+justify-content:space-between;
+align-items:center;
+position: relative;
+padding:28px;
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+border-radius:22px;
+color:white;
+box-shadow:0 15px 40px rgba(37,99,235,.25);
+margin-bottom:30px;
+}
+.textchangeImage {
+position: absolute;
+top: -20px;
+right: -10px;
+background-color: #0d6efd;
+color: white;
+border-radius: 30px;
+padding: 10px;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+
+
+.welcomeLeft{
+display:flex;
+align-items:center;
+gap:18px;
+
+}
+
+
+
+
+.avatar{
+  position: relative;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  overflow:hidden;
+}
+
+.avatar img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  
+}
+
+.avatar:hover img{
+    transform:scale(1.08);
+}
+
+
+.editAvatar{
+  position: absolute;
+    inset:0;
+     background:rgba(0,0,0,.45);
+      display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+     font-size:24px;
+      opacity:0;
+      transition:.3s;
+}
+
+.avatar:hover .editAvatar{
+    opacity:1;
+    cursor: pointer;
+}
+
+
+.uploadOverlay{
+position:absolute;
+inset:0;
+border-radius:50%;
+background:rgba(0,0,0,.5);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:10px;
+font-weight:bold;
+text-align: center;
+}
+
+
+.welcomeLeft h3{
+font-size:26px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+.welcomeLeft p{
+margin:0;
+opacity:.9;
+font-size:15px;
+}
+
+.notificationBtn{
+width:55px;
+position: relative;
+height:55px;
+border:none;
+border-radius:50%;
+background:white;
+font-size:24px;
+cursor:pointer;
+transition:.3s;
+}
+
+.ring {
+  color: #dc3545; /* قرمز */
+  animation: bellRing 0.8s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.noring{
+  color: green;
+}
+
+.notificationBtn:hover{
+transform:scale(1.08) rotate(10deg);
+}
+
+@keyframes bellRing {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(18deg); }
+  30%  { transform: rotate(-18deg); }
+  45%  { transform: rotate(14deg); }
+  60%  { transform: rotate(-14deg); }
+  75%  { transform: rotate(8deg); }
+  90%  { transform: rotate(-8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+
+.welcomeRight{
+  position:relative;
+}
+
+.notificationMenu{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:300px;
+    background:#fff;
+    color:#333;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    padding:15px;
+    z-index:1000;
+}
+
+.notificationMenu h6{
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.notificationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: 0.3s;
+}
+
+.notificationItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  font-size: 22px;
+  color: #0d6efd;
+}
+
+.countTrue {
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #dc3545;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+.countFalse{
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #a2dc35;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+
+
+/* استایل ها مربوط به هدر ادمین  */

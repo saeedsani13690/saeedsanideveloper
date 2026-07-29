@@ -1,0 +1,518 @@
+.container{
+    width:100%;
+    padding:30px;
+    background:#f8fafc;
+    min-height:100vh;
+}
+
+.title{
+    font-size:30px;
+    font-weight:700;
+    color:#1e293b;
+    margin-bottom:25px;
+}
+
+
+
+/* شروع لودینگ */
+
+.loading{
+    min-height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.loadingBox{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+
+    padding:35px 45px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.spinner{
+    width:60px;
+    height:60px;
+    border:6px solid #e5e7eb;
+    border-top:6px solid #2563eb;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+}
+
+.loadingText{
+    font-size:18px;
+    font-weight:600;
+    color:#334155;
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* بایان لودینگ */
+
+.tableWrapper{
+    width:100%;
+    overflow-x:auto;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+
+.table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:900px;
+}
+
+.table thead{
+    background:#2563eb;
+    color:#fff;
+}
+
+.table th{
+    padding:18px;
+    text-align:center;
+    font-size:15px;
+    font-weight:700;
+}
+
+.table td{
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid #ececec;
+    font-size:14px;
+    color:#374151;
+}
+
+.table tbody tr{
+    transition:.25s;
+}
+
+.table tbody tr:hover{
+    background:#f8fafc;
+}
+
+.viewBtn{
+    border:none;
+    outline:none;
+    padding:10px 22px;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.viewBtn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+
+@media(max-width:992px){
+
+.container{
+    padding:20px;
+}
+
+.title{
+    font-size:25px;
+}
+
+.table{
+    min-width:750px;
+}
+
+.table th,
+.table td{
+    padding:14px;
+    font-size:13px;
+}
+
+}
+
+@media(max-width:576px){
+
+.container{
+    padding:15px;
+}
+
+.title{
+    font-size:22px;
+}
+
+.viewBtn{
+    padding:8px 16px;
+    font-size:13px;
+}
+
+.pagination{
+    gap:6px;
+}
+
+.pagination button{
+    width:38px;
+    height:38px;
+}
+
+}
+
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.paid{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.pending{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.failed{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*================ Overlay ================*/
+
+.overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn .25s ease;
+}
+
+
+/*================ Modal ================*/
+
+.modal{
+    width: min(900px,95%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    animation: popup .25s ease;
+}
+
+
+/*================ Close Button ================*/
+
+.closeBtn{
+    position: absolute;
+    top:18px;
+    left:18px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#f3f4f6;
+    cursor:pointer;
+    font-size:20px;
+    transition:.25s;
+}
+
+.closeBtn:hover{
+    background:#ef4444;
+    color:#fff;
+    transform:rotate(90deg);
+}
+
+
+/*================ Title ================*/
+
+.modalTitle{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:#1e293b;
+
+    font-size:28px;
+
+    font-weight:700;
+}
+
+
+/*================ Info Grid ================*/
+
+.infoGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:35px;
+}
+
+.infoGrid div{
+    background:#f8fafc;
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    border:1px solid #e5e7eb;
+}
+
+.infoGrid span{
+    color:#64748b;
+    font-size:14px;
+}
+
+
+.infoGrid strong{
+    color:#0f172a;
+    font-size:16px;
+}
+
+
+/*================ Status ================*/
+
+.paid,
+.pending,
+.failed{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    width:fit-content;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.paid{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.pending{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.failed{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+
+/*================ Course Title ================*/
+
+.courseTitle{
+    margin-bottom:18px;
+    font-size:22px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+
+/*================ Course List ================*/
+
+.courseList{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+
+/*================ Course Card ================*/
+
+.courseCard{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:16px;
+    transition:.3s;
+}
+
+.courseCard:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+
+/*================ Image ================*/
+
+.imageBox{
+    width:130px;
+    height:80px;
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    flex-shrink:0;
+}
+
+.imageBox img{
+    object-fit:cover;
+}
+
+
+/*================ Course Info ================*/
+
+.courseInfo{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.courseInfo h4{
+    margin:0;
+    color:#1e293b;
+    font-size:18px;
+}
+
+.courseInfo p{
+    margin:0;
+    color:#64748b;
+}
+
+.courseInfo span{
+    font-weight:bold;
+    color:#2563eb;
+}
+
+
+/*================ Footer Button ================*/
+
+.closeModal{
+    margin-top:30px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#8b95aa;
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.closeModal:hover{
+    background:#1d4ed8;
+}
+
+
+/*================ Scroll ================*/
+
+.modal::-webkit-scrollbar{
+    width:8px;
+}
+
+.modal::-webkit-scrollbar-thumb{
+    background:#aec5e1;
+    border-radius:20px;
+}
+
+
+/*================ Animation ================*/
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+    }
+
+    to{
+
+        opacity:1;
+    }
+}
+
+
+/*================ Responsive ================*/
+
+@media(max-width:768px){
+
+.infoGrid{
+
+    grid-template-columns:1fr;
+}
+
+.courseCard{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+}
+
+.imageBox{
+
+    width:100%;
+
+    height:180px;
+}
+
+.modal{
+
+    padding:20px;
+}
+
+.modalTitle{
+
+    font-size:22px;
+}
+
+}

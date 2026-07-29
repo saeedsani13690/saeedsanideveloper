@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 import { IsAdmin } from "@/utils/authIsAdminTrueOrFales";
 import path from "path"
 import { mkdir, writeFile } from 'fs/promises'
+import { getEmbedding } from "@/app/api/chatBot/openai";
 
 export async function POST(req) {
     try{
@@ -162,15 +163,7 @@ if(exitingSlug){
 {status:400})
 }
 
-// //مراحل اپلود عکس
-// const bytes= await thumbnail.arrayBuffer()
-// const buffer=Buffer.from(bytes)
-// const filename=`${Date.now()}-${Math.round(Math.random()*1e9)}${path.extname(thumbnail.name)}`;
-// const uploadDir=path.join(process.cwd(),"public","images","courses")
-// await  mkdir(uploadDir,{recursive:true});
-// const filePath=path.join(uploadDir,filename);
-//  await writeFile(filePath,buffer);
-// const imgUrl=`/images/courses/${filename}`
+
 
 
 const bytes = await thumbnail.arrayBuffer();
@@ -203,6 +196,29 @@ const totalDuration = `${hours} ساعت و ${minutes} دقیقه`;
 
 
 
+const courseText = `
+نام دوره:
+${title}
+دسته بندی:
+برنامه نویسی و طراحی سایت
+توضیحات کوتاه:
+${shortDescription}
+توضیحات کامل:
+${fullDescription}
+سطح:
+${levelPeriod}
+سرفصل ها:
+${chapters
+.map(ch => ch.title)
+.join(" ")}
+`;
+const embedding = await getEmbedding(courseText);
+
+
+
+
+
+
 
 
 //   ذخیره کردن دوره 
@@ -219,7 +235,8 @@ statusPeriod,
 thumbnail:imgUrl,
 chapters,
 lessonsCount:chapters.reduce((sum,ch)=>sum+ch.lessons.length,0),
-totalDuration
+totalDuration,
+embedding
   })
 
   await newCourse.save()

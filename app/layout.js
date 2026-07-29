@@ -7,6 +7,7 @@ import MyHeader from "./components/layout/Headers";
 import "@fontsource/vazirmatn"
 import { CartProvider } from "@/context/cartContext/CartContext";
 import FooterSaeed from "./components/layout/Footer";
+import ChatBot from "./components/ChatBot/ChatBot";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,18 +17,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body >
-       
-       <Toaster position="bottom-center" />
-         <AuthProvider>
-          <CartProvider>
-            <MyHeader />
-            <main>{children}</main>
-            <FooterSaeed/>
-          </CartProvider>
-        </AuthProvider>
-       
-      </body>
+     <body>
+  <Toaster position="bottom-center" />
+
+  <CartProvider>
+    <AuthProvider>
+      <MyHeader />
+      <main>{children}</main>
+      <FooterSaeed />
+      <ChatBot/>
+    </AuthProvider>
+  </CartProvider>
+</body>
     </html>
   );
 }

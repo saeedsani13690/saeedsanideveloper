@@ -7,7 +7,7 @@ import WhyUs from "./components/section/home/Whyus/WhyUs";
 import Testimonials from "./components/section/home/Testimonials/Testimonials";
 import Roadmap from "./components/section/home/Roadmap/Roadmap";
 import Stats from "./components/section/home/Stats/Stats";
-import CTA from "./components/section/home/CTA/CTA";
+
 
 export default function Home() {
 
@@ -39,4 +39,4 @@ export default function Home() {
 }
 
 
-////npm i mongoose --registry=https://mirror-npm.runflare.com 
+

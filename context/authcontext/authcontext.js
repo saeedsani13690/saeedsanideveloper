@@ -2,14 +2,17 @@
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-
-
+import { useCart } from "../cartContext/CartContext";
 const AuthContext=createContext()
+
+
+
 
 export function AuthProvider({children}){
 const[user,setUser]=useState(null)
-const[loading,setLoading]=useState(false)
+const[loading,setLoading]=useState(true)
 const router=useRouter()
+const { clearCart } = useCart()
 
 
 useEffect(()=>{
@@ -51,6 +54,7 @@ const data=await response.json()
 if(data.success){
     setUser(null)
     toast.success("با موفقیت خارج شدی")
+clearCart();
     router.push("/auth")
 } else{
     toast.error("خطا در خارج شدن از حساب کاربری")
@@ -79,6 +83,8 @@ else setUser(null)
 }catch(error){
 console.log("error fetchingUSer ",error)
 setUser(null)
+}finally{
+    setLoading(false);
 }
 }
 

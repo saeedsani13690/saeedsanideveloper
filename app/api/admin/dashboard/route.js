@@ -4,6 +4,7 @@ import UserSchema from "@/models/UserSchema";
 import CommentSchema from "@/models/CommentSchema";
 import OrderSchema from "@/models/OrderSchema";
 
+
 export async function GET() {
   try {
     await connectDB();
@@ -24,6 +25,7 @@ export async function GET() {
       pendingComments,
       totalOrders,
       incomeResult,
+      
     ] = await Promise.all([
       // تعداد کل کاربران
       UserSchema.countDocuments(),
@@ -60,11 +62,18 @@ export async function GET() {
           $group: {
             _id: null,
             totalIncome: {
-              $sum: "$price",
+              $sum: "$totalprice",
             },
           },
         },
+
+        
       ]),
+
+
+
+
+
     ]);
 
     const totalIncome = incomeResult[0]?.totalIncome || 0;
@@ -82,6 +91,7 @@ export async function GET() {
           totalOrders,
           totalIncome,
         },
+        
       },
       { status: 200 }
     );

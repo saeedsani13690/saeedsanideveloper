@@ -14,6 +14,7 @@ const replySchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+
   },
   {
     timestamps: true,
@@ -55,6 +56,11 @@ const commentSchema = new mongoose.Schema(
       
     },
 
+        isReadByAdmin: {
+  type: Boolean,
+  default: false,
+},
+
     // وضعیت تایید کامنت توسط ادمین
     status: {
   type: String,
@@ -65,6 +71,8 @@ const commentSchema = new mongoose.Schema(
   ],
   default: "pending"
 },
+
+
 
     // اگر کامنت پاسخ به کامنت دیگری باشد
     // شناسه کامنت والد در اینجا ذخیره می‌شود

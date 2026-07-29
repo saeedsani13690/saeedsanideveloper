@@ -30,6 +30,7 @@ const query=search?{title:{$regex:search}}:{}
 
 const courses=await course.find(query)
 
+
 return Response.json({success:true,courses})
 }
 

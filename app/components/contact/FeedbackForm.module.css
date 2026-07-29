@@ -1,0 +1,166 @@
+.stars{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+.star{
+
+    font-size:38px;
+
+    color:#d1d5db;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+}
+.activeStar{
+
+    font-size:38px;
+
+    color:#fbbf24;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+}
+.star:hover,
+.activeStar:hover{
+
+    transform:translateY(-4px) scale(1.12);
+
+}
+
+
+
+
+
+.section {
+  padding: 80px 0;
+ 
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #64748b;
+  margin: 0;
+}
+
+.card {
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.star,
+.activeStar {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.star {
+  color: #d1d5db;
+}
+
+.activeStar {
+  color: #fbbf24;
+}
+
+.star:hover,
+.activeStar:hover {
+  transform: scale(1.15);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  border: 1px solid #dbe4ee;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 15px;
+  outline: none;
+  transition: .2s;
+  resize: vertical;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+}
+
+.submitBtn {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: .25s;
+}
+
+.submitBtn:hover {
+  background: #1d4ed8;
+}
+
+.submitBtn:active {
+  transform: scale(.98);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .card {
+    padding: 25px;
+  }
+
+  .star,
+  .activeStar {
+    font-size: 1.8rem;
+  }
+
+  .header h2 {
+    font-size: 1.7rem;
+  }
+}

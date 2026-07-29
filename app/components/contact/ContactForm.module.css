@@ -1,0 +1,136 @@
+.section {
+    padding: 100px 0;
+}
+.titleBox {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.titleBox h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.titleBox p {
+    margin-top: 12px;
+    color: #64748b;
+    font-size: 1.05rem;
+}
+.formWrapper {
+    max-width: 950px;
+    margin: auto;
+    padding: 45px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 28px;
+    box-shadow:
+        0 20px 60px rgba(15,23,42,.08),
+        0 8px 25px rgba(15,23,42,.05);
+}
+.inputGroup {
+    margin-bottom: 28px;
+}
+.inputGroup label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #334155;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+
+    width: 100%;
+    border: 1.5px solid #dbe4ee;
+
+    background: #f8fafc;
+
+    border-radius: 16px;
+
+    padding:16px 18px 16px 55px;
+
+    font-size: 15px;
+
+    transition: .3s;
+
+    outline: none;
+
+}
+
+.inputGroup input:hover,
+.inputGroup textarea:hover {
+  border-color: #2563eb;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 5px rgba(37,99,235,.12);
+}
+.inputGroup textarea {
+  resize: none;
+}
+
+.submitBtn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 180px;
+    height: 56px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+
+    box-shadow: 0 10px 25px rgba(37, 99, 235, .25);
+}
+.submitBtn:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 16px 35px rgba(37, 99, 235, .35);
+
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+.submitBtn:active {
+    transform: scale(.98);
+}
+.submitBtn:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, .25);
+    outline-offset: 4px;
+}
+.inputWrapper{
+    position: relative;
+}
+.icon{
+    position:absolute;
+
+    top:50%;
+    left:18px;
+
+    transform:translateY(-50%);
+
+    font-size:22px;
+
+    color:#94a3b8;
+
+    transition:.3s;
+}
+.inputWrapper:focus-within .icon{
+
+    color:#2563eb;
+
+    transform:translateY(-50%) scale(1.1);
+
+}
