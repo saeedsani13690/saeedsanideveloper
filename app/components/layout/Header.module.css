@@ -155,31 +155,80 @@
   box-shadow: 0 0 18px rgba(110, 231, 255, 0.25);
 }
 
-/* برای واکنش‌گرایی (Mobile Responsiveness) - به صورت ساده */
-@media (max-width: 768px) {
-  .header ul, .header li {
-    display: none; /* منوی اصلی در موبایل مخفی میشه */
-  }
-
-  .header {
-    justify-content: space-between; /* لوگو و اکشن‌ها رو پخش می‌کنه */
-  }
-
-  .logoContainer {
-    gap: 0; /* فاصله کم برای لوگو در موبایل */
-  }
-
-  .actionsContainer {
-    gap: 10px; /* فاصله کمتر بین آیکون‌ها در موبایل */
-  }
-
-  .cart a, .authLinks a {
-      padding: 8px 10px; /* padding کمتر در موبایل */
-  }
-  .cart a svg, .authLinks a svg {
-      font-size: 20px; /* آیکون‌ها کمی بزرگتر */
+@media (max-width:992px){
+  .menuhumberger{
+    display: none;
   }
 }
+
+@media (max-width:1500px){
+  .menuhumberger{
+    display: none;
+  }
+}
+
+
+
+
+
+@media (max-width:768px){
+
+.header{
+  justify-content: space-between; 
+  padding: 12px 18px;
+}
+
+/* // منوی اصلی دستکات مخقی شود  */
+.navContainer{
+  display: none;
+}
+
+/* // logo/ */
+.logoContainer img{
+  border-radius: 30px; 
+  color: #6ee7ff;
+
+}
+
+
+
+
+
+
+
+.menuhumberger{
+  display: flex;
+  
+  padding: 10px;
+  color: #590346;
+  border-radius: 10px;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
 
 .divEnterLogout{
   display: inline-block;

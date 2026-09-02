@@ -70,7 +70,7 @@ const expiresAt = Date.now() + OTP_EXPIRE_SECONDS * 1000;
                 "templateId": process.env.TEMPLATE_ID,
                 "parameters": [
                     { name: 'code', value: otpCode },
-                ],n
+                ],
             }),
         })
         if (response.status === 200) {

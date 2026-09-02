@@ -1,0 +1,46 @@
+
+
+
+.mobileMenu a{
+  text-decoration: none;
+  color:rgb(244, 244, 249);
+  
+}
+
+
+  .mobileMenu{
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 120px;
+    border: 2px solid rgb(194, 144, 144);
+      background-color: lightslategray;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 30px;
+    align-items: center;
+   padding: 20px  0;
+    height: 300px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+     transform: translateX(-100%);
+     opacity: 0;
+      pointer-events: none;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  .mobileMenu.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+
+
+
+
