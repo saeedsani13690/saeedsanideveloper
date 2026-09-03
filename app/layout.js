@@ -10,8 +10,33 @@ import FooterSaeed from "./components/layout/Footer";
 import ChatBot from "./components/ChatBot/ChatBot";
 
 export const metadata = {
-title: "وبنارو | Webnaro — سایت شخصی و نمونه‌کارهای سعید ثانی",
-description: "وبنارو (Webnaro)، سایت شخصی و نمونه‌کارهای سعید ثانی در زمینه طراحی و توسعه وب، برنامه‌نویسی و پروژه‌های نرم‌افزاری.",
+  metadataBase: new URL("https://webnaro.ir"),
+
+  title: "وبنارو | آموزش برنامه‌نویسی و طراحی وب",
+
+  description:
+    "وبنارو؛ آموزش برنامه‌نویسی، طراحی و توسعه وب با آموزش‌های کاربردی، پروژه‌های واقعی و دوره‌های آموزشی سعید ثانی.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  applicationName: "وبنارو",
+
+  openGraph: {
+    title: "وبنارو | آموزش برنامه‌نویسی و طراحی وب",
+    description:
+      "وبنارو؛ آموزش برنامه‌نویسی، طراحی و توسعه وب با آموزش‌های کاربردی، پروژه‌های واقعی و دوره‌های آموزشی سعید ثانی.",
+    url: "https://webnaro.ir/",
+    siteName: "وبنارو",
+    locale: "fa_IR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
