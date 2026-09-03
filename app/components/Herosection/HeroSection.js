@@ -1,57 +1,53 @@
 "use client"
-// import Typewriter from 'typewriter-effect'
-import { useEffect, useState } from 'react'
-// این متغیر برای نوشت و باک کردن اون نوشته است 
-const PersianTypewriter=({text,speed=100})=>{
-  // اول کار خالیاست 
-const[displayText,setDisplayText]=useState("")
-// این مشخص میکند الان در حال باک رکدن هستین یا نوشت ن
-const [isDeleting,setIsDeleting]=useState(false)
 
-useEffect(()=>{
+import { useEffect, useState } from "react"
 
-let timeOut// برای نگه داشتن تایمر استفاده میسشوذ 
+// کامپوننت تایپ و پاک کردن متن
+const PersianTypewriter = ({ text, speed = 100 }) => {
+  const [displayText, setDisplayText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
 
-// اینجا یعنی هنور در حال نوشتم هستیم  ویکی یکی حروف اضافه میشه 
-if(!isDeleting && displayText.length <text.length ){
-  timeOut=setTimeout(() => {
-    setDisplayText(text.slice(0,displayText.length+1))
-  }, speed);
+  useEffect(() => {
+    let timeOut
 
-  // اگر حروف بر شد حالا میخوایم متغیر ور عوض کنیم تا بره باک کنه یکی کی 
-}else if(!isDeleting && displayText.length===text.length){
-  timeOut=setTimeout(() => {
-    setIsDeleting(true)
-  }, 1800);
-}
+    // در حال نوشتن
+    if (!isDeleting && displayText.length < text.length) {
+      timeOut = setTimeout(() => {
+        setDisplayText(text.slice(0, displayText.length + 1))
+      }, speed)
 
-// اینجا حالا میخوام یکی یکی باک کنیم 
-else if(isDeleting && displayText.length>0){
-timeOut=setTimeout(() => {
-  setDisplayText(text.slice(0,displayText.length-1))
-}, speed/2);
-}
-// حالا همه باک شده دوباره شروع کن از اول نوشتم 
-else if (isDeleting && displayText.length===0){
-setIsDeleting(false)
-}
-return () => clearTimeout(timeOut)
+    // متن کامل نوشته شده
+    } else if (!isDeleting && displayText.length === text.length) {
+      timeOut = setTimeout(() => {
+        setIsDeleting(true)
+      }, 1800)
+    }
 
-},[displayText,isDeleting,text,speed])
+    // در حال پاک کردن
+    else if (isDeleting && displayText.length > 0) {
+      timeOut = setTimeout(() => {
+        setDisplayText(text.slice(0, displayText.length - 1))
+      }, speed / 2)
+    }
 
-return (
-  <span dir="rtl">
-    {displayText}
-  </span>
-)
-}
+    // متن کامل پاک شده
+    else if (isDeleting && displayText.length === 0) {
+      setIsDeleting(false)
+    }
 
-
-function Introduction() {
-
+    return () => clearTimeout(timeOut)
+  }, [displayText, isDeleting, text, speed])
 
   return (
-    <section className="bg-gradient-to-br from-pink-50 via-white to-purple-50    w-full mt-5 py-10 sm:py-14 lg:py-20">
+    <span dir="rtl">
+      {displayText}
+    </span>
+  )
+}
+
+function Introduction() {
+  return (
+    <section className="bg-gradient-to-br from-pink-50 via-white to-purple-50 w-full mt-5 py-10 sm:py-14 lg:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:justify-between lg:gap-16">
@@ -59,30 +55,22 @@ function Introduction() {
           {/* Text */}
           <div className="w-full text-center lg:w-1/2 lg:text-right">
 
+            {/* عنوان اصلی صفحه */}
+            <h1 className="text-2xl font-bold leading-tight text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
+              وبنارو | آموزش برنامه‌نویسی و طراحی وب
+            </h1>
 
-<div className="min-h-[1.2em] break-words text-2xl font-bold leading-tight text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
-  <PersianTypewriter
-    text="سلام، من"
-    speed={120}
-  />
-</div>
+            {/* معرفی سعید */}
+            <div className=" mt-4 min-h-[3.2em] break-words text-2xl font-bold leading-tight text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
+              <PersianTypewriter
+                text="سلام، من سعید ثانی هستم..."
+                speed={120}
+              />
+            </div>
 
-
-
-<div className="min-h-[1.2em]   mt-2 break-words text-2xl font-bold leading-tight text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
-  <PersianTypewriter
-    text="سعید ثانی هستم..."
-    speed={120}
-  />
-</div>
-
-
-
-
-        
-
+            {/* توضیحات */}
             <p className="mx-auto mt-6 max-w-2xl text-base font-bold leading-8 text-gray-600 sm:text-lg lg:mx-0 dark:text-gray-300">
-              ! من یک برنامه‌نویس و طراح سایت هستم.
+              من یک برنامه‌نویس و طراح سایت هستم.
               در زمینه ساخت رابط‌های کاربری مدرن، جذاب و واکنش‌گرا
               با استفاده از تکنولوژی‌های روز وب فعالیت می‌کنم.
             </p>
@@ -119,7 +107,7 @@ function Introduction() {
 
               <img
                 src="/assets/Copilot_20251115_100910.png"
-                alt="سعید ثانی"
+                alt="سعید ثانی - برنامه‌نویس و طراح سایت"
                 className="h-full w-full rounded-full object-cover transition-transform duration-500 hover:scale-105"
               />
 
