@@ -172,15 +172,26 @@ export default function FooterSaeed() {
 
 
               <div className={styles.trustBox}>
-              <Image
-               src="/images/download.png"
-                 alt="زرین پال"
-    width={50}
-    height={50}
-    style={{ objectFit: "contain" }}
-              
-               />
-              </div>
+<a
+  referrerPolicy="origin"
+  target="_blank"
+  href="https://trustseal.enamad.ir/?id=7624226&Code=iPSLfYfKPsgBmZHJhq5VGMPmZMZQbsaA"
+>
+  <img
+    referrerPolicy="origin"
+    src="https://trustseal.enamad.ir/logo.aspx?id=7624226&Code=iPSLfYfKPsgBmZHJhq5VGMPmZMZQbsaA"
+    alt=""
+    style={{ cursor: "pointer" }}
+    code="iPSLfYfKPsgBmZHJhq5VGMPmZMZQbsaA"
+  />
+</a>
+
+
+
+
+
+
+            </div>
 
 
             </div>
