@@ -144,7 +144,182 @@ const updatelesson = (chIndex, lessonIndex, field, value) => {
 
 };
 
-// برای اپلود ویدیو در اروان کلود وبرگردانند ادرس ان 
+// // برای اپلود ویدیو در اروان کلود وبرگردانند ادرس ان 
+// const handleVideoUpload = async (
+//   file,
+//   chIndex,
+//   lesIndex,
+//   slug,
+//   chaptertitle
+// ) => {
+ 
+
+
+//   if (!file || !slug || !chaptertitle) {
+//     toast.error("اسلاگ و عنوان فصل الزامی است");
+//     return;
+//   }
+
+
+//   const videoFormData = new FormData();
+//   videoFormData.append("video", file);
+//   videoFormData.append("slug", slug);
+//   videoFormData.append("chaptertitle", chaptertitle);
+//   const oldVideoKey = chapters[chIndex].lessons[lesIndex].videoKey;
+
+// updatelesson(
+//   chIndex,
+//   lesIndex,
+//   "uploading",
+//   true
+// );
+
+// updatelesson(
+//   chIndex,
+//   lesIndex,
+//   "processing",
+//   false
+// );
+// updatelesson(
+//   chIndex,
+//   lesIndex,
+//   "progress",
+//   0
+// );
+
+
+
+
+
+
+//   // حذف ویدیوی قبلی
+//  if(oldVideoKey){
+//  const deleteFormData=new FormData()
+//  deleteFormData.append("videoKey",oldVideoKey)
+
+//  const deleteRes=await fetch("/api/admin/uploadVideo",{
+//   method:"DELETE",
+//   body:deleteFormData
+//  })
+
+//  const deleteData=await deleteRes.json()
+//   if (deleteData.success) {
+//     toast.success("ویدیو قبلی حذف شد");
+//   }else{
+//     toast.error(deleteData.message)
+//   }
+
+//  }
+
+
+
+
+
+//   try {
+//     const res = await axios.post("/api/admin/uploadVideo",
+// videoFormData,{
+//   headers:{"Content-Type": "multipart/form-data",},
+//   onUploadProgress:(ProgressEvent)=>{
+//     const percent=Math.round(
+// (ProgressEvent.loaded*100)/ProgressEvent.total) 
+
+// if(percent==100){
+//     updatelesson(
+//     chIndex,
+//     lesIndex,
+//     "processing",
+//     true
+//   );
+// }
+
+//  updatelesson(
+//     chIndex,
+//     lesIndex,
+//     "progress",
+//     percent
+//   );
+
+
+//   }
+// }
+//   )
+     
+
+
+// const data = res.data;
+
+
+// if(data.success){
+//     updatelesson(
+//     chIndex,
+//     lesIndex,
+//     "videoKey",
+//     data.key
+//   );
+
+//   updatelesson(
+//     chIndex,
+//     lesIndex,
+//     "uploading",
+//     false
+//   );
+
+//    updatelesson(
+//     chIndex,
+//     lesIndex,
+//     "progress",
+//     100
+//   );
+
+//   updatelesson(
+//   chIndex,
+//   lesIndex,
+//   "processing",
+//   false
+// );
+
+
+//   toast.success("اپلود موفقیت  امیز بود ")
+
+
+
+// }else{
+//   toast.error(data.message)
+//     updatelesson(
+//     chIndex,
+//     lesIndex,
+//     "uploading",
+//     false
+//   );
+// }
+
+
+  
+
+
+//   }catch(error){
+
+//       console.error(err);
+
+//     updatelesson(
+//         chIndex,
+//         lesIndex,
+//         "uploading",
+//         false
+//     );
+
+//     toast.error("خطا در حذف ویدیو قبلی");
+
+//     return;
+
+//   }
+
+// };
+
+
+
+// // برای اپلود ویدیو در اروان کلود وبرگردانند ادرس ان 
+
 const handleVideoUpload = async (
   file,
   chIndex,
@@ -152,169 +327,280 @@ const handleVideoUpload = async (
   slug,
   chaptertitle
 ) => {
- 
 
-
+  // 1️⃣ بررسی اطلاعات ضروری
   if (!file || !slug || !chaptertitle) {
     toast.error("اسلاگ و عنوان فصل الزامی است");
     return;
   }
 
 
-  const videoFormData = new FormData();
-  videoFormData.append("video", file);
-  videoFormData.append("slug", slug);
-  videoFormData.append("chaptertitle", chaptertitle);
-  const oldVideoKey = chapters[chIndex].lessons[lesIndex].videoKey;
-
-updatelesson(
-  chIndex,
-  lesIndex,
-  "uploading",
-  true
-);
-
-updatelesson(
-  chIndex,
-  lesIndex,
-  "processing",
-  false
-);
-updatelesson(
-  chIndex,
-  lesIndex,
-  "progress",
-  0
-);
-
-
-
-
-
-
-  // حذف ویدیوی قبلی
- if(oldVideoKey){
- const deleteFormData=new FormData()
- deleteFormData.append("videoKey",oldVideoKey)
-
- const deleteRes=await fetch("/api/admin/uploadVideo",{
-  method:"DELETE",
-  body:deleteFormData
- })
-
- const deleteData=await deleteRes.json()
-  if (deleteData.success) {
-    toast.success("ویدیو قبلی حذف شد");
-  }else{
-    toast.error(deleteData.message)
-  }
-
- }
-
-
-
+  // 2️⃣ پیدا کردن ویدیوی قبلی این درس
+  const oldVideoKey =
+    chapters[chIndex].lessons[lesIndex].videoKey;
 
 
   try {
-    const res = await axios.post("/api/admin/uploadVideo",
-videoFormData,{
-  headers:{"Content-Type": "multipart/form-data",},
-  onUploadProgress:(ProgressEvent)=>{
-    const percent=Math.round(
-(ProgressEvent.loaded*100)/ProgressEvent.total) 
 
-if(percent==100){
+    // 3️⃣ اعلام شروع آپلود به UI
     updatelesson(
-    chIndex,
-    lesIndex,
-    "processing",
-    true
-  );
-}
-
- updatelesson(
-    chIndex,
-    lesIndex,
-    "progress",
-    percent
-  );
-
-
-  }
-}
-  )
-     
-
-
-const data = res.data;
-
-
-if(data.success){
-    updatelesson(
-    chIndex,
-    lesIndex,
-    "videoKey",
-    data.key
-  );
-
-  updatelesson(
-    chIndex,
-    lesIndex,
-    "uploading",
-    false
-  );
-
-   updatelesson(
-    chIndex,
-    lesIndex,
-    "progress",
-    100
-  );
-
-  updatelesson(
-  chIndex,
-  lesIndex,
-  "processing",
-  false
-);
-
-
-  toast.success("اپلود موفقیت  امیز بود ")
-
-
-
-}else{
-  toast.error(data.message)
-    updatelesson(
-    chIndex,
-    lesIndex,
-    "uploading",
-    false
-  );
-}
-
-
-  
-
-
-  }catch(error){
-
-      console.error(err);
+      chIndex,
+      lesIndex,
+      "uploading",
+      true
+    );
 
     updatelesson(
+      chIndex,
+      lesIndex,
+      "processing",
+      false
+    );
+
+    updatelesson(
+      chIndex,
+      lesIndex,
+      "progress",
+      0
+    );
+
+
+    // 4️⃣ اگر این درس قبلاً ویدیو داشته،
+    //    اول ویدیوی قبلی را حذف کن
+    if (oldVideoKey) {
+
+      const deleteFormData = new FormData();
+
+      deleteFormData.append(
+        "videoKey",
+        oldVideoKey
+      );
+
+
+      const deleteRes = await fetch(
+        "/api/admin/uploadVideo",
+        {
+          method: "DELETE",
+          body: deleteFormData
+        }
+      );
+
+
+      const deleteData =
+        await deleteRes.json();
+
+
+      if (!deleteData.success) {
+
+        toast.error(
+          deleteData.message ||
+          "حذف ویدیوی قبلی انجام نشد"
+        );
+
+
+        updatelesson(
+          chIndex,
+          lesIndex,
+          "uploading",
+          false
+        );
+
+        return;
+      }
+    }
+
+
+    // 5️⃣ از Backend یک Presigned URL می‌گیریم
+    const response = await fetch(
+      "/api/admin/uploadVideo",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+          slug,
+          chaptertitle,
+          fileName: file.name,
+          contentType: file.type
+        })
+      }
+    );
+
+
+    // 6️⃣ جواب Backend را دریافت می‌کنیم
+    const data = await response.json();
+
+
+    // 7️⃣ بررسی می‌کنیم Backend موفق بوده یا نه
+    if (!response.ok || !data.success) {
+
+      toast.error(
+        data.message ||
+        "ساخت لینک آپلود انجام نشد"
+      );
+
+
+      updatelesson(
         chIndex,
         lesIndex,
         "uploading",
         false
+      );
+
+      return;
+    }
+
+
+    // 8️⃣ دو چیز مهم را از Backend می‌گیریم
+    const {
+      uploadUrl,
+      videoKey
+    } = data;
+
+
+    // 9️⃣ خود فایل را مستقیم به Arvan می‌فرستیم
+    await axios.put(
+      uploadUrl,
+      file,
+      {
+
+        headers: {
+          "Content-Type": file.type
+        },
+
+
+        // 🔟 نمایش درصد آپلود
+        onUploadProgress: (progressEvent) => {
+
+          if (!progressEvent.total) {
+            return;
+          }
+
+
+          const percent = Math.round(
+            (progressEvent.loaded * 100) /
+            progressEvent.total
+          );
+
+
+          // درصد را داخل Lesson ذخیره می‌کنیم
+          updatelesson(
+            chIndex,
+            lesIndex,
+            "progress",
+            percent
+          );
+
+
+          // وقتی به 100% رسید
+          if (percent === 100) {
+
+            updatelesson(
+              chIndex,
+              lesIndex,
+              "processing",
+              true
+            );
+
+          }
+
+        }
+
+      }
     );
 
-    toast.error("خطا در حذف ویدیو قبلی");
 
-    return;
+    // 1️⃣1️⃣ آپلود با موفقیت تمام شد
+
+    // videoKey را داخل Lesson ذخیره کن
+    updatelesson(
+      chIndex,
+      lesIndex,
+      "videoKey",
+      videoKey
+    );
+
+
+    // آپلود دیگر در حال انجام نیست
+    updatelesson(
+      chIndex,
+      lesIndex,
+      "uploading",
+      false
+    );
+
+
+    // درصد را 100 قرار بده
+    updatelesson(
+      chIndex,
+      lesIndex,
+      "progress",
+      100
+    );
+
+
+    // پردازش تمام شد
+    updatelesson(
+      chIndex,
+      lesIndex,
+      "processing",
+      false
+    );
+
+
+    // پیام موفقیت
+    toast.success(
+      "آپلود ویدیو با موفقیت انجام شد"
+    );
+
+
+  } catch (error) {
+
+    // 1️⃣2️⃣ اگر هر جایی خطا اتفاق افتاد
+    console.error(
+      "Video Upload Error:",
+      error
+    );
+
+
+    // وضعیت UI را برگردان
+    updatelesson(
+      chIndex,
+      lesIndex,
+      "uploading",
+      false
+    );
+
+
+    updatelesson(
+      chIndex,
+      lesIndex,
+      "processing",
+      false
+    );
+
+
+    // نمایش خطا
+    toast.error(
+      error.response?.data?.message ||
+      error.message ||
+      "خطا در آپلود ویدیو"
+    );
 
   }
-
 };
+
+
+
+
+
+
+
+
+
 
 //این تابع برای اضافه کردن درسها وفصل ها است 
 const updateChapterTitle=(index, title, value)=>{

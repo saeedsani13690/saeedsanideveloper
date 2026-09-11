@@ -131,9 +131,7 @@ studentsCount:{
     type:Number,
      default:0
 },
-embedding:{
-    type:[Number],
-    default:[]
+
 }
 
 
